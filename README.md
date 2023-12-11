@@ -26,7 +26,7 @@ git clone git@github.com:DecodePlaymaker/ultraWeather.git
 * The URL of the functional, deployed application: <br>
     (https://decodeplaymaker.github.io/ultraWeather/)
 
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project: <br>
+* The URL of the GitHub repository: <br>
     (https://github.com/DecodePlaymaker/ultraWeather)
 
 ## Resource:

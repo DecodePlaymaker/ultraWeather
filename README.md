@@ -4,7 +4,7 @@
 
 >This website's objective is to develop a weather dashboard that shows users the current weather information along with a five-day forecast for the future. Additionally, it will save previous search results so that the user can pick them and view the city's weather information once more. Enter a city's name in the search box and press enter to utilize the dashboard. The city will be added to a list as you search, giving you the option to choose them again for viewing. 
 
-![img](assets/images/screenshot.png)
+![img](assets/images/weather.png)
 
 ## Direction 
 

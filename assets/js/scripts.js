@@ -1,12 +1,13 @@
+//Input my key in a variable 
 var key = 'd09b52155e0726e61a14e70b366b66bb';
 var city = "Portland"
 
-//Grabs the current time and date
+//Obtains the date and time 
 var date = moment().format('dddd, MMMM Do YYYY');
 var dateTime = moment().format('YYYY-MM-DD HH:MM:SS')
 
 var cityHist = [];
-//Will save the text value of the search and save it to an array and storage
+//Store the search text value in an array and store it somewhere 
 $('.search').on("click", function (event) {
 	event.preventDefault();
 	city = $(this).parent('.btnPar').siblings('.textVal').val().trim();
@@ -21,7 +22,7 @@ $('.search').on("click", function (event) {
 	getWeatherToday();
 });
 
-//Will create buttons based on search history 
+//Buttons made based on past searches 
 var contHistEl = $('.cityHist');
 function getHistory() {
 	contHistEl.empty();
@@ -40,7 +41,7 @@ function getHistory() {
 	} if (!city) {
 		return;
 	}
-	//Allows the buttons to start a search as well
+	//Permits the buttons to initate a search in addition
 	$('.histBtn').on("click", function (event) {
 		event.preventDefault();
 		city = $(this).text();
@@ -49,9 +50,9 @@ function getHistory() {
 	});
 };
 
-//Grab the main 'Today' card body.
+//Select the primary 'Today' card body
 var cardTodayBody = $('.cardBodyToday')
-//Applies the weather data to the today card and then launches the five day forecast
+//launches the five-day forecast after applying the meteorological data to the today card
 function getWeatherToday() {
 	var getUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`;
 
@@ -68,14 +69,11 @@ function getWeatherToday() {
 		// Temperature
 		var pEl = $('<p>').text(`Temperature: ${response.main.temp} °F`);
 		cardTodayBody.append(pEl);
-		//Feels Like
-		var pElTemp = $('<p>').text(`Feels Like: ${response.main.feels_like} °F`);
-		cardTodayBody.append(pElTemp);
 		//Humidity
 		var pElHumid = $('<p>').text(`Humidity: ${response.main.humidity} %`);
 		cardTodayBody.append(pElHumid);
 		//Wind Speed
-		var pElWind = $('<p>').text(`Wind Speed: ${response.wind.speed} MPH`);
+		var pElWind = $('<p>').text(`Wind: ${response.wind.speed} MPH`);
 		cardTodayBody.append(pElWind);
 		//Set the lat and long from the searched city
 		var cityLon = response.coord.lon;
@@ -164,7 +162,7 @@ function getFiveDayForecast() {
 			var pElTemp = $('<p>').text(`Temperature: ${myWeather[i].temp} °F`);
 			divElBody.append(pElTemp);
 			//Feels Like
-			var pElFeel = $('<p>').text(`Feels Like: ${myWeather[i].feels_like} °F`);
+			var pElFeel = $('<p>').text(`Feels like: ${myWeather[i].feels_like} °F`);
 			divElBody.append(pElFeel);
 			//Humidity
 			var pElHumid = $('<p>').text(`Humidity: ${myWeather[i].humidity} %`);
@@ -173,7 +171,7 @@ function getFiveDayForecast() {
 	});
 };
 
-//Allows for the example data to load for Denver
+//Allows for the example data to load for Porland
 function initLoad() {
 
 	var cityHistStore = JSON.parse(localStorage.getItem('city'));
